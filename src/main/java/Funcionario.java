@@ -9,44 +9,43 @@ public class Funcionario {
         this.nome = nome;
         this.papel = designaPapel(funcao);
     }
+    
+    public void promoverAGerente() {
+        papel = designaPapel("Gerente");
+    }
+    
+    public void promoverAProductOwner() {
+        papel = designaPapel("ProductOwner");
+    }
 
     private Papel designaPapel(String funcao) {
-        if (funcao.equals("Desenvolvedor")) {
-            Papel teste = new Desenvolvedor("R$ 1.000", "Desenvolver");
-            return teste;
-        } else if (funcao.equals("Gerente")) {
-            return new Gerente("R$ 2.000", "Gerenciar");
-        } else if (funcao.equals("ProductOwner")) {
-            return new ProductOwner("R$ 3.000", "Desenvolver");
+        if ("Desenvolvedor".equals(funcao)) {
+            return new Desenvolvedor();
+        } else if ("Gerente".equals(funcao)) {
+            return new Gerente();
+        } else if ("ProductOwner".equals(funcao)) {
+            return new ProductOwner();
         }
         throw new IllegalArgumentException("Função inválida: " + funcao);
     }
-
-    public void promoverAGerente() {
-        papel = new Gerente("R$ 5.000", "Gerenciar porra.");
-    }
-
-    public void promoverAProductOwner() {
-        papel = new ProductOwner("R$ 8.000", "Gerenciar todos os produto.");
-    }
-
+    
     public String getCpf() {
         return cpf;
     }
-
+    
     public String getNome() {
         return nome;
     }
-
+    
     public Papel getPapel() {
         return papel;
     }
-
+    
     @Override
     public String toString() {
-        return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", papel=" + papel + "]";
+        return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", papel=" + papel.getResponsabilidade() + "]";
     }
-
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -54,7 +53,7 @@ public class Funcionario {
         result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
         return result;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

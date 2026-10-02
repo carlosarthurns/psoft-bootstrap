@@ -1,11 +1,13 @@
 public class Desenvolvedor implements Papel{
+    
     @Override
     public String getResponsabilidade() {
-        return null;
+        return "Desenvolvedor";
     }
 
     @Override
-    public double getSalario() {
-        return 0.0;
+    public String getSalario() {
+        return "R$ 1.000";
     }
+
 }

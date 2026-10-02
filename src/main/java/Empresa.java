@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Empresa {
+
     private Funcionario productOwner;
     private String cnpj;
     private List<Funcionario> funcionarios;
